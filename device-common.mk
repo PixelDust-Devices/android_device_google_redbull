@@ -64,6 +64,8 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
 
+#PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 # enable cal by default on accel sensor
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.vendor.debug.sensors.accel_cal=1
@@ -80,7 +82,7 @@ PRODUCT_COPY_FILES += \
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.control_privapp_permissions=enforce
+    ro.control_privapp_permissions=log
 
 PRODUCT_PACKAGES += \
     messaging \
@@ -668,7 +670,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 # Setup Dalvik VM configurations
-$(call inherit-product, vendor/extras/configs/phone-xhdpi-6144-dalvik-heap.mk)
+$(call inherit-product, vendor/pixeldust/configs/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Use the default charger mode images
 PRODUCT_PACKAGES += \
